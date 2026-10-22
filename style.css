@@ -356,7 +356,7 @@ body {
   padding: 10px 16px;
   gap: 12px;
   cursor: pointer;
-  border-bottom: 0.5px solid #e5e5ea;
+  border-bottom: 1px solid #e5e5ea;
 }
 
 .chat-item:active {
