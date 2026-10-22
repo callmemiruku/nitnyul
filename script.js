@@ -59,7 +59,7 @@ let chatData = {
       { type: 'date', text: 'iMessage • อังคาร 14:54' },
       { text: 'คืนนี้ไปอินดี้เปล่าไอเอิท', sender: 'them' },
       { text: 'ถามอิงก่อน', sender: 'me' },
-      { text: 'มึงตัวติดกันหรอวะ', sender: 'me' },
+      { text: 'มึงตัวติดกันหรอวะ', sender: 'them' },
       { type: 'date', text: 'iMessage • เมื่อวาน 09:45' },
       { text: 'พี่ริว', sender: 'me' },
       { text: 'ไร', sender: 'them' },
