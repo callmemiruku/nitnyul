@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iOS Home Screen</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="phone-container">
+    <div class="screen">
+
+      <div class="lock-screen" id="lockScreen">
+        <!-- หน้าแรกของ Lock Screen -->
+        <div class="lock-page" id="lockMainPage" onclick="showPasscodePage()">
+          <div class="lock-clock" id="lockClock">08:58</div>
+          <div class="lock-date" id="lockDate">วันพฤหัสบดีที่ 22 ตุลาคม</div>
+          <div class="lock-hint">แตะเพื่อป้อนรหัสผ่าน</div>
+        </div>
+
+        <!-- หน้าป้อนรหัสผ่าน -->
+        <div class="passcode-page" id="passcodePage">
+          <div class="passcode-title">ป้อนรหัส</div>
+          
+          <div class="passcode-dots" id="passcodeDots">
+            <div class="dot-item"></div>
+            <div class="dot-item"></div>
+            <div class="dot-item"></div>
+            <div class="dot-item"></div>
+          </div>
+
+          <div class="keypad">
+            <button class="key-btn" onclick="pressKey('1')">1</button>
+            <button class="key-btn" onclick="pressKey('2')">2</button>
+            <button class="key-btn" onclick="pressKey('3')">3</button>
+            <button class="key-btn" onclick="pressKey('4')">4</button>
+            <button class="key-btn" onclick="pressKey('5')">5</button>
+            <button class="key-btn" onclick="pressKey('6')">6</button>
+            <button class="key-btn" onclick="pressKey('7')">7</button>
+            <button class="key-btn" onclick="pressKey('8')">8</button>
+            <button class="key-btn" onclick="pressKey('9')">9</button>
+            <button class="key-btn" style="grid-column: 2;" onclick="pressKey('0')">0</button>
+            <button class="key-btn text-btn" onclick="deleteKey()">ยกเลิก</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Status Bar -->
+      <div class="status-bar">
+        <span class="time" id="clock">8:58</span>
+        <div class="dynamic-island">
+          <div class="lens"></div>
+        </div>
+        <div class="status-right">
+          <svg width="16" height="12" viewBox="0 0 18 12" fill="white">
+            <rect x="0" y="8" width="3" height="4" rx="0.5"/>
+            <rect x="5" y="6" width="3" height="6" rx="0.5"/>
+            <rect x="10" y="3" width="3" height="9" rx="0.5"/>
+            <rect x="15" y="0" width="3" height="12" rx="0.5"/>
+          </svg>
+          <svg width="15" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+            <path d="M12 20h.01"/>
+            <path d="M2 8.82a15 15 0 0 1 20 0"/>
+            <path d="M5 12.85a10 10 0 0 1 14 0"/>
+            <path d="M8.5 16.88a5 5 0 0 1 7 0"/>
+          </svg>
+          <svg width="22" height="12" viewBox="0 0 24 12" fill="white">
+            <rect x="0" y="0" width="20" height="12" rx="3" fill-opacity="0.3" stroke="white" stroke-width="1"/>
+            <rect x="2" y="2" width="13" height="8" rx="1.5"/>
+            <path d="M22 4v4" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Main Content Area -->
+      <div class="home-content">
+
+        <!-- Widgets -->
+        <div class="widgets-container">
+          <div class="widget calendar-widget">
+            <div class="cal-header">วันเสาร์</div>
+            <div class="cal-number">23</div>
+            <div class="cal-events">
+              <div class="event-item">
+                <div class="event-bar red"></div>
+                <div class="event-text">
+                  <div class="event-title">ส่งเล่มวิจัย</div>
+                  <div class="event-sub">ในอีก 10 วัน</div>
+                </div>
+              </div>
+              <div class="event-item">
+                <div class="event-bar purple"></div>
+                <div class="event-text">
+                  <div class="event-title">วันเกิดอิง</div>
+                  <div class="event-sub">ในอีก 91 วัน</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="widget weather-widget">
+            <div class="weather-top">
+              <div class="city">กรุงเทพ <span class="arrow">↗</span></div>
+              <svg class="sun-icon" viewBox="0 0 24 24" fill="#facc15">
+                <circle cx="12" cy="12" r="5"/>
+                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="#facc15" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="weather-temp">32°</div>
+            <div class="weather-info">
+              <div class="weather-desc">แดดเป็นส่วนใหญ่</div>
+              <div class="weather-range">สูงสุด:35° ต่ำสุด:26°</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- App Grid -->
+        <div class="app-grid">
+          <div class="app-item" onclick="openApp('Instagram')">
+            <div class="app-icon insta-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </div>
+            <span class="app-label">Instagram</span>
+          </div>
+
+          <div class="app-item" onclick="openApp('รูปภาพ')">
+            <div class="app-icon photos-icon">
+                <img src="image/gallery.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;">
+            </div>
+            <span class="app-label">รูปภาพ</span>
+          </div>
+
+          <div class="app-item" onclick="openApp('นาฬิกา')">
+            <div class="app-icon photos-icon">
+                <img src="image/clock.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;">
+            </div>
+            <span class="app-label">นาฬิกา</span>
+          </div>
+
+          <div class="app-item" onclick="openApp('โน้ต')">
+            <div class="app-icon" style="background: transparent; box-shadow: none; padding: 0;">
+              <img src="image/note.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;">
+            </div>
+            <span class="app-label">โน้ต</span>
+          </div>
+
+          <div class="app-item" onclick="openApp('การตั้งค่า')">
+            <div class="app-icon photos-icon">
+                <img src="image/setting.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;">
+            </div>
+            <span class="app-label">การตั้งค่า</span>
+          </div>
+        </div>
+
+        <!-- Search Button -->
+        <div class="search-btn">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>ค้นหา</span>
+        </div>
+
+        <!-- Dock Bottom Bar -->
+        <div class="dock-container">
+          <div class="app-item" onclick="openApp('โทรศัพท์')">
+            <div class="app-icon" style="background: transparent; box-shadow: none; padding: 0;">
+              <img src="image/call.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;">
+            </div>
+          </div>
+
+          <div class="app-item" onclick="openApp('Safari')">
+            <div class="app-icon" style="background: transparent; box-shadow: none; padding: 0;">
+              <img src="image/safari.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;">
+            </div>
+          </div>
+
+          <div class="app-item" onclick="openApp('ข้อความ')">
+            <div class="app-icon" style="background: transparent; box-shadow: none; padding: 0;">
+              <img src="image/imessage.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;">
+            </div>
+          </div>
+
+          <div class="app-item" onclick="openApp('เพลง')">
+            <div class="app-icon" style="background: transparent; box-shadow: none; padding: 0;">
+              <img src="image/music.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;">
+            </div>
+          </div>
+        </div>
+
+        <div class="home-indicator"></div>
+
+      </div>
+
+      <!-- App Modal Screen -->
+      <div class="app-modal" id="appModal">
+        <div id="modalContent" style="width: 100%; height: 100%;"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
